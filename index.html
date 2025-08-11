@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Info Map</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #info-box {
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px solid #333;
+            width: 90%;
+            max-width: 600px;
+            display: none;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Click on a Car to Learn More</h2>
+<p>Touch or click on the Mercedes-Benz or BMW to see details below.</p>
+
+<img src="C:\Users\admin\Downloads\d0c7406361c87135b67b7ad3d47670f9.jpg" alt="Mercedes and BMW" usemap="#carMap" width="960" height="768">
+
+<map name="carMap">
+    <area shape="rect" coords="70,330,450,650" alt="Mercedes-Benz" onclick="showInfo('benz')">
+    <area shape="rect" coords="500,330,870,650" alt="BMW" onclick="showInfo('bmw')">
+</map>
+
+<div id="info-box"></div>
+
+<script>
+    function showInfo(car) {
+        var info = "";
+        if (car === "benz") {
+            info = `
+                <h3>Mercedes-Benz</h3>
+                <ul>
+                    <li>Mercedes-Benz is a German luxury automobile brand.</li>
+                    <li>Known for high performance and advanced engineering.</li>
+                    <li>Part of Daimler AG, it has a long history since 1926.</li>
+                    <li>Popular for models like C-Class, E-Class, and S-Class.</li>
+                    <li>Symbolized by the iconic three-pointed star logo.</li>
+                </ul>
+            `;
+        } else if (car === "bmw") {
+            info = `
+                <h3>BMW</h3>
+                <ul>
+                    <li>BMW stands for Bayerische Motoren Werke AG.</li>
+                    <li>It is a premium German car and motorcycle manufacturer.</li>
+                    <li>Famous for sporty driving and performance engineering.</li>
+                    <li>Popular models include the 3 Series, 5 Series, and M Series.</li>
+                    <li>The brand promotes “The Ultimate Driving Machine.”</li>
+                </ul>
+            `;
+        }
+
+        document.getElementById('info-box').innerHTML = info;
+        document.getElementById('info-box').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
